@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="app.js" defer></script>
+  <title>TODO LIST APP</title>
+</head>
+
+<body>
+  <div class="my-container">
+
+    <!-- navbar start -->
+    <nav class="navbar navbar-dark bg-dark mb-4 py-2">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 mx-2">
+          <h2>Jhon Umar</h2>
+        </span>
+        <span id="addTodoBtn" class="btn btn-sm btn-primary py-2 mx-3" data-bs-toggle="modal" data-bs-target="#Modal">
+          <i class="fa-solid fa-plus mx-1 border border-2 rounded-1 p-1"></i>
+          Add Todo
+        </span>
+      </div>
+    </nav>
+    <!-- navbar end -->
+    
+    <!-- main body start -->
+    <div class="main-body container d-flex align-content-start flex-wrap justify-content-center justify-content-evenly"
+      id="mainBody">
+
+      <div class="card text-bg-primary mb-4" style="max-width: 18rem;">
+        <div class="card-header">
+          <div class="row">
+            <div class="col">Date</div>
+            <div class="col text-end">
+              <i class="fa-solid fa-pen-to-square mx-3"></i>
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo odit perferendis quod, incidunt
+            adipisci nobis aperiam quam. Excepturi recusandae, ullam cumque sapiente optio atque vitae, dignissimos
+            impedit nam vero ad! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ab explicabo voluptate
+            inventore debitis quaerat aliquam error ex? Perspiciatis, eaque? Reprehenderit ducimus quae, in earum
+            laborum repellat quidem molestias fugiat?</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-secondary mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Secondary card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-success mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Success card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-danger mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Danger card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-warning mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Warning card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-info mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Info card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-light mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Light card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-dark mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Dark card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+      <div class="card text-bg-success mb-4" style="max-width: 18rem;">
+        <div class="card-header">Header</div>
+        <div class="card-body">
+          <h5 class="card-title">Success card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+        </div>
+      </div>
+
+    </div>
+    <!-- main body end -->
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Due Date</p>
+          <input type="date" class="form-control" name="" id="date"/>
+          <br />
+          <p>Task Title</p>
+          <input type="text" class="form-control" name="" id="title"/>
+          <div id="msg1"></div>
+          <br />
+          <p>Description</p>
+          <textarea name="" class="form-control" id="description" cols="30" rows="5"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
