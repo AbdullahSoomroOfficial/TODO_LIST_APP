@@ -8,23 +8,9 @@ const description = document.querySelector('#description');
 const saveTodo = document.querySelector('#save');
 const currentDate = new Date();
 const today = (currentDate.getMonth() + 1) + '-' + currentDate.getDate() + '-' + currentDate.getFullYear();
+const todoList = [];
 
-
-function modalReset() {
-    date.value = '';
-    title.value = '';
-    description.value = '';
-}
-
-function hideModal() {
-    modal.classList.remove('show');
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.classList.remove('modal-open');
-    body.style = 'none';
-}
-
-saveTodo.addEventListener('click', function () {
+function validateModal() {
     if (title.value) {
         const cardData = {};
         //setting date
@@ -41,15 +27,31 @@ saveTodo.addEventListener('click', function () {
         } else {
             cardData.description = '...No Description...';
         }
+        todoList.push(cardData);
+        msg1.innerText = '';
+        resetModal();
         hideModal();
-        modalReset();
     } else {
         msg1.innerText = 'Title can not be empty';
     }
-});
+}
 
-// addTodoBtn.addEventListener('click', function() {
-//     const today = (currentDate.getMonth() + 1) + '-' + currentDate.getDate() + '-' + currentDate.getFullYear();
-//     date.value = today;
-//     console.log(today)
-// });
+function resetModal() {
+    date.value = '';
+    title.value = '';
+    description.value = '';
+}
+
+function hideModal() {
+    saveTodo.setAttribute('data-bs-dismiss', 'modal');
+    saveTodo.removeEventListener('click', validateModal);
+    saveTodo.click();
+    saveTodo.addEventListener('click', validateModal);
+    saveTodo.removeAttribute('data-bs-dismiss');
+}
+
+function createCard() {
+    //work on this
+}
+
+saveTodo.addEventListener('click', validateModal);
