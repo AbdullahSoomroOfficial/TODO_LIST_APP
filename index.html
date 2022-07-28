@@ -33,7 +33,7 @@
       </div>
     </nav>
     <!-- navbar end -->
-    
+
     <!-- main body start -->
     <div class="main-body container d-flex align-content-start flex-wrap justify-content-center justify-content-evenly"
       id="mainBody">
@@ -42,7 +42,7 @@
     <!-- main body end -->
   </div>
   <!-- Modal -->
-  <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -51,10 +51,10 @@
         </div>
         <div class="modal-body">
           <p>Due Date</p>
-          <input type="date" class="form-control" name="" id="date"/>
+          <input type="date" class="form-control" name="" id="date" />
           <br />
           <p>Task Title</p>
-          <input type="text" class="form-control" name="" id="title"/>
+          <input type="text" class="form-control" name="" id="title" />
           <div id="msg1"></div>
           <br />
           <p>Description</p>
@@ -63,6 +63,35 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary" id="save">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- UPDATE TASK Modal -->
+  <div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true" id="updateTask">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Update Todo</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Due Date</p>
+          <input type="date" class="form-control" name="" id="dateInputUpdated" />
+          <br />
+          <p>Task Title</p>
+          <input type="text" class="form-control" name="" id="titleInputUpdated" />
+          <div id="msg2"></div>
+          <br />
+          <p>Description</p>
+          <textarea name="" class="form-control" id="descInputUpdated" cols="30" rows="5"></textarea>
+          <input type="hidden" name="" id="key">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+          <button type="submit" id="update" class="btn btn-primary" data-bs-dismiss="modal">Update</button>
         </div>
       </div>
     </div>
