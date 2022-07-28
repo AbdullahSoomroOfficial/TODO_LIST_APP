@@ -1,3 +1,5 @@
+import * as card from './card.js';
+
 const addTodoBtn = document.querySelector('#addTodoBtn');
 const mainBody = document.querySelector('#mainBody');
 const modal = document.querySelector('#Modal');
@@ -14,7 +16,7 @@ function validateModal() {
     if (title.value) {
         const cardData = {};
         //setting date
-        if(date.value) {
+        if (date.value) {
             cardData.date = date.value;
         } else {
             cardData.date = today;
@@ -22,15 +24,16 @@ function validateModal() {
         //seeting title
         cardData.title = title.value;
         //setting desc
-        if(description.value) {
+        if (description.value) {
             cardData.description = description.value;
         } else {
-            cardData.description = '...No Description...';
+            cardData.description = '';
         }
         todoList.push(cardData);
-        msg1.innerText = '';
+        // console.log(todoList);
         resetModal();
         hideModal();
+        showTodos(todoList);
     } else {
         msg1.innerText = 'Title can not be empty';
     }
@@ -40,6 +43,7 @@ function resetModal() {
     date.value = '';
     title.value = '';
     description.value = '';
+    msg1.innerText = '';
 }
 
 function hideModal() {
@@ -50,8 +54,27 @@ function hideModal() {
     saveTodo.removeAttribute('data-bs-dismiss');
 }
 
-function createCard() {
-    //work on this
+function createCard(id){
+    const newCard = card.convertStringToHTML(card.cardString, id);
+    newCard.querySelector('.col').textContent = `Date: ${todoList[id].date}`;
+    newCard.querySelector('.card-body').children[0].innerText = todoList[id].title;
+    newCard.querySelector('.card-body').children[1].innerText = todoList[id].description;
+    return newCard;
+}
+
+function showTodos(arr) {
+    if(todoList.length !== 0){
+        mainBody.textContent = '';
+        for(let i = 0; i < arr.length ; i++) {
+            const card = createCard(i);
+            mainBody.appendChild(card);
+            console.dir(document.body)
+        }
+    } else {
+        mainBody.textContent = "NO TODO's";
+    }
 }
 
 saveTodo.addEventListener('click', validateModal);
+
+showTodos();
