@@ -78,7 +78,7 @@ function createCard(id){
 }
 
 function deleteCard() {
-    const id = parseInt(this.parentElement.parentElement.parentElement.getAttribute('id'));
+    const id = parseInt(this.parentElement.parentElement.parentElement.parentElement.getAttribute('id'));
     todoList.splice(id,1);
     showTodos(todoList);
 }

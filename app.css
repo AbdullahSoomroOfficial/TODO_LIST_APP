@@ -20,7 +20,7 @@ body {
 }
 
 .card {
-    height: 24rem;
+    height: 10rem;
     flex-basis: 100%;
     overflow-y: auto;
 }
