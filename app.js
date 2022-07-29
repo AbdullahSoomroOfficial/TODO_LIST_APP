@@ -1,4 +1,23 @@
-import * as card from './card.js';
+const card = {
+    cardString : `<div class="card text-bg-primary mb-4" style="max-width: 18rem;">
+    <div class="card-header">
+        <div class="row">
+            <div class="col cardDate"></div>
+            <div class="col text-end">
+                <i class="fa-solid fa-pen-to-square mx-3" data-bs-toggle="modal" data-bs-target="#updateTask"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+    <h5 class="card-title mb-3 cardTitle"></h5>
+    </div>
+ </div>`,
+ convertStringToHTML : function(str, id) {const parser = new DOMParser();
+    const parsedString = parser.parseFromString(str, 'text/html');
+    parsedString.body.firstChild.setAttribute('id',id);
+    return parsedString.body.firstChild;}
+}
 
 const addTodoBtn = document.querySelector('#addTodoBtn');
 const mainBody = document.querySelector('#mainBody');
@@ -7,7 +26,6 @@ const msg1 = document.querySelector('#msg1');
 const msg2 = document.querySelector('#msg2');
 const date = document.querySelector('#date');
 const title = document.querySelector('#title');
-// const description = document.querySelector('#description');
 const saveTodo = document.querySelector('#save');
 const update = document.querySelector('#update');
 const currentDate = new Date();
@@ -19,7 +37,6 @@ const todoList = [];
 //for update modal
 const dateInputUpdated = document.getElementById('dateInputUpdated');
 const titleInputUpdated = document.getElementById('titleInputUpdated');
-// const descInputUpdated = document.getElementById('descInputUpdated');
 const key = document.getElementById('key');
 
 function validateModal() {
@@ -34,14 +51,8 @@ function validateModal() {
         }
         //seeting title
         cardData.title = '💡 ' + title.value;
-        //setting desc
-        // if (description.value) {
-        //     cardData.description = description.value;
-        // } else {
-        //     cardData.description = '';
-        // }
         todoList.push(cardData);
-        // console.log(todoList);
+
         resetModal();
         hideModal();
         showTodos(todoList);
@@ -53,7 +64,6 @@ function validateModal() {
 function resetModal() {
     date.value = '';
     title.value = '';
-    // description.value = '';
     msg1.innerText = '';
 }
 
@@ -73,7 +83,6 @@ function createCard(id){
     newCard.children[0].children[0].children[1].children[1].addEventListener('click', deleteCard);
     newCard.querySelector('.col').textContent = `Date: ${todoList[id].date}`;
     newCard.querySelector('.card-body').children[0].innerText = todoList[id].title;
-    // newCard.querySelector('.card-body').children[1].innerText = todoList[id].description;
     return newCard;
 }
 
@@ -102,12 +111,10 @@ function editCard() {
     //formatting date here
     const cardDate = card.querySelector('.cardDate').innerText.slice(6);
     const cardTitle = card.querySelector('.cardTitle').innerText;
-    // const cardDesc = card.querySelector('.cardDesc').innerText;
     const newDate = cardDate.split('/')
     const formattedDate = newDate[2]+'-'+newDate[1]+'-'+newDate[0];
     dateInputUpdated.value= formattedDate
     titleInputUpdated.value = cardTitle;
-    // descInputUpdated.value = cardDesc;
     key.value = id;
 }
 
@@ -122,13 +129,12 @@ function validateUpdateModal() {
             cardData.date = today;
         }
         //seeting title
-        cardData.title = titleInputUpdated.value;
-        //setting desc
-        // if (descInputUpdated.value) {
-        //     cardData.description = descInputUpdated.value;
-        // } else {
-        //     cardData.description = '';
-        // }
+        //checking for bulb icon
+        if(titleInputUpdated.value.includes('💡')) {
+            cardData.title = titleInputUpdated.value;
+        } else {
+            cardData.title = '💡 '+ titleInputUpdated.value;
+        }
         todoList[parseInt(key.value)]= cardData;
         showTodos(todoList);
     } else {
