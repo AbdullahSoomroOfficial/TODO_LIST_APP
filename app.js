@@ -7,7 +7,7 @@ const msg1 = document.querySelector('#msg1');
 const msg2 = document.querySelector('#msg2');
 const date = document.querySelector('#date');
 const title = document.querySelector('#title');
-const description = document.querySelector('#description');
+// const description = document.querySelector('#description');
 const saveTodo = document.querySelector('#save');
 const update = document.querySelector('#update');
 const currentDate = new Date();
@@ -19,7 +19,7 @@ const todoList = [];
 //for update modal
 const dateInputUpdated = document.getElementById('dateInputUpdated');
 const titleInputUpdated = document.getElementById('titleInputUpdated');
-const descInputUpdated = document.getElementById('descInputUpdated');
+// const descInputUpdated = document.getElementById('descInputUpdated');
 const key = document.getElementById('key');
 
 function validateModal() {
@@ -33,13 +33,13 @@ function validateModal() {
             cardData.date = today;
         }
         //seeting title
-        cardData.title = title.value;
+        cardData.title = '💡 ' + title.value;
         //setting desc
-        if (description.value) {
-            cardData.description = description.value;
-        } else {
-            cardData.description = '';
-        }
+        // if (description.value) {
+        //     cardData.description = description.value;
+        // } else {
+        //     cardData.description = '';
+        // }
         todoList.push(cardData);
         // console.log(todoList);
         resetModal();
@@ -53,7 +53,7 @@ function validateModal() {
 function resetModal() {
     date.value = '';
     title.value = '';
-    description.value = '';
+    // description.value = '';
     msg1.innerText = '';
 }
 
@@ -73,7 +73,7 @@ function createCard(id){
     newCard.children[0].children[0].children[1].children[1].addEventListener('click', deleteCard);
     newCard.querySelector('.col').textContent = `Date: ${todoList[id].date}`;
     newCard.querySelector('.card-body').children[0].innerText = todoList[id].title;
-    newCard.querySelector('.card-body').children[1].innerText = todoList[id].description;
+    // newCard.querySelector('.card-body').children[1].innerText = todoList[id].description;
     return newCard;
 }
 
@@ -102,12 +102,12 @@ function editCard() {
     //formatting date here
     const cardDate = card.querySelector('.cardDate').innerText.slice(6);
     const cardTitle = card.querySelector('.cardTitle').innerText;
-    const cardDesc = card.querySelector('.cardDesc').innerText;
+    // const cardDesc = card.querySelector('.cardDesc').innerText;
     const newDate = cardDate.split('/')
     const formattedDate = newDate[2]+'-'+newDate[1]+'-'+newDate[0];
     dateInputUpdated.value= formattedDate
     titleInputUpdated.value = cardTitle;
-    descInputUpdated.value = cardDesc;
+    // descInputUpdated.value = cardDesc;
     key.value = id;
 }
 
@@ -124,11 +124,11 @@ function validateUpdateModal() {
         //seeting title
         cardData.title = titleInputUpdated.value;
         //setting desc
-        if (descInputUpdated.value) {
-            cardData.description = descInputUpdated.value;
-        } else {
-            cardData.description = '';
-        }
+        // if (descInputUpdated.value) {
+        //     cardData.description = descInputUpdated.value;
+        // } else {
+        //     cardData.description = '';
+        // }
         todoList[parseInt(key.value)]= cardData;
         showTodos(todoList);
     } else {

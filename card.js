@@ -9,10 +9,10 @@ export const cardString =  `<div class="card text-bg-primary mb-4" style="max-wi
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title border-bottom mb-3 cardTitle"></h5>
-                                    <p class="card-text cardDesc"></p>
+                                <h5 class="card-title mb-3 cardTitle"></h5>
                                 </div>
-                            </div>`
+                             </div>`
+                                    // <p class="card-text cardDesc"></p>
 
 
 export function convertStringToHTML(str, id) {
