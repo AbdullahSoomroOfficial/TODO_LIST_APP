@@ -189,5 +189,5 @@ function validateUpdateModal() {
 
 saveTodo.addEventListener('click', validateModal);
 update.addEventListener('click', validateUpdateModal);
-showTodos();
 window.onload = getName();
+showTodos();
