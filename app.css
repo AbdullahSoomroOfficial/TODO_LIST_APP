@@ -59,6 +59,6 @@ i {
     cursor: pointer;
 }
 
-#msg1 {
+#msg1, #msg2, #msg3 {
     color: red;
 }
